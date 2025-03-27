@@ -37,8 +37,8 @@ public class FirstPersonController : MonoBehaviour
         
         //If my mouse goes up/down my aim (but not body) go up/down
         float yRot = -Input.GetAxis("Mouse Y") * MouseSensitivity;
-        Eyes.transform.Rotate(yRot,transform.rotation.y,0);
-        Eyes.transform.position = transform.position;
+        Eyes.transform.Rotate(yRot,0,0);
+       
 
         //Movement code
         if (WalkSpeed > 0)
