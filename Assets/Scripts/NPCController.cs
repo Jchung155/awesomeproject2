@@ -7,7 +7,7 @@ public class NPCController : MonoBehaviour
 {
     //My components
     public Rigidbody RB;
-    public Animator Anim;
+    //public Animator Anim;
     public int health = 5;
     public BoxCollider boxCollider;
 
@@ -17,11 +17,17 @@ public class NPCController : MonoBehaviour
     //Who do I walk towards?
     public GameObject Target;
 
+    public float jumpTime;
+    public float lastJumpTime;
+    public float jumpVel;
+
     void Start()
     {
         //At the start of the game I should play my walk animation
-        Anim.Play("Walking");
+        //Anim.Play("Walking");
         //I just walk forever, for now.
+
+
     }
 
     private void Update()
@@ -40,6 +46,13 @@ public class NPCController : MonoBehaviour
             vel.y = RB.linearVelocity.y;
             //Plug it into my rigidbody
             RB.linearVelocity = vel;
+
+            if(transform.position.y<=1.5f) lastJumpTime -= Time.deltaTime;
+            if(lastJumpTime <= 0){
+            Jump();
+            lastJumpTime = jumpTime;
+            }
+            
         }
         else Die();
     }
@@ -47,6 +60,13 @@ public class NPCController : MonoBehaviour
     public void Die()
     {
         boxCollider.isTrigger = true;
-        Vector3 launchVel = Vector3.forward * -3;
+         Destroy(gameObject, 2.0f);
+        Vector3 launchVel = Vector3.forward * -5;
+        RB.linearVelocity += launchVel;
+    }
+
+    public void Jump(){
+        Vector3 vel = new Vector3(0, jumpVel, 0);
+        RB.linearVelocity += vel;
     }
 }
