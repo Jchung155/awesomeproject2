@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,7 +11,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position = player.transform.position /*+ player.transform.forward*0.5f*/;
-        //transform.rotation = player.transform.rotation;
+        
     }
 }
