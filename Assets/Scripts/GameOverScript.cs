@@ -11,6 +11,9 @@ public class GameOverScript : MonoBehaviour
     //Every frame, we check for player inputs
     void Update()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //If the player hit space. . .
         if (Input.GetKeyDown(KeyCode.Space))
         {

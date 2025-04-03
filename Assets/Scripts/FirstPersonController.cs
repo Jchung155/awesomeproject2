@@ -59,6 +59,11 @@ public class FirstPersonController : MonoBehaviour
 
             RB.angularDamping = 100;
 
+            if(transform.position.y < -10)
+            {
+                Die();
+            }
+
 
             //Movement code
             if (WalkSpeed > 0)

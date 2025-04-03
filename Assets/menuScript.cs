@@ -55,7 +55,7 @@ public class menuScript : MonoBehaviour
 
     public void UpgradeDamage()
     {
-        player.damage += 0.25f;
+        player.damage += 0.5f;
         Resume();
     }
 
