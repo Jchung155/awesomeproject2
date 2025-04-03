@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8553430528972367917}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 20781cf10ea4f704b93adb92f4e4ff2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,8 +152,10 @@ MonoBehaviour:
   RB: {fileID: 4964511951018887641}
   health: 5
   boxCollider: {fileID: 3045817021393521463}
-  Speed: 1
+  Speed: 6
   Target: {fileID: 0}
   jumpTime: 3
   lastJumpTime: 0
-  jumpVel: 0
+  jumpVel: 7
+  dead: 0
+  gameManager: {fileID: 0}

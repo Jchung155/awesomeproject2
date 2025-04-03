@@ -12,11 +12,12 @@ public class Projectile3DController : MonoBehaviour
     public float Speed = 30;
     //How hard do I knockback things I hit?
     public float Knockback = 10;
+    public FirstPersonController player;
 
     void Start()
     {
         //When I spawn, I fly straight forwards at my Speed
-        RB.linearVelocity = transform.forward * Speed;
+        RB.linearVelocity = transform.forward * (Speed + player.bulletSpeedUpgrade);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -27,11 +28,11 @@ public class Projectile3DController : MonoBehaviour
         if (rb != null && other.gameObject.tag == "Enemy")
         {
             //I push them in the direction I'm flying with a power equal to my Knockback stat
-            rb.AddForce(RB.linearVelocity.normalized * Knockback,ForceMode.Impulse);
+            rb.AddForce(RB.linearVelocity.normalized * (Knockback + player.knockbackUpgrade),ForceMode.Impulse);
         }
         if(enemyController != null)
         {
-            enemyController.health--;
+            enemyController.health-= player.damage;
         }
         //If I hit anything, I despawn
         Destroy(gameObject);
